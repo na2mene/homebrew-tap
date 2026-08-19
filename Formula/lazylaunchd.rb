@@ -5,21 +5,21 @@
 class Lazylaunchd < Formula
   desc "A lazygit-style TUI for macOS launchd"
   homepage "https://github.com/na2mene/lazylaunchd"
-  version "0.10.0"
+  version "0.11.0"
   license "MIT"
   depends_on :macos
 
   if Hardware::CPU.intel?
-    url "https://github.com/na2mene/lazylaunchd/releases/download/v0.10.0/lazylaunchd_0.10.0_darwin_amd64.tar.gz"
-    sha256 "3eca54b5c60c625d098ab4eb1efb6b3a64466f4ed94da13a362771b50e5f95d3"
+    url "https://github.com/na2mene/lazylaunchd/releases/download/v0.11.0/lazylaunchd_0.11.0_darwin_amd64.tar.gz"
+    sha256 "eb7448bcce05eb7a8d167fd568ac10ee2b00a6b11cf29c2b2a7b203a34bd7611"
 
     define_method(:install) do
       bin.install "lazylaunchd"
     end
   end
   if Hardware::CPU.arm?
-    url "https://github.com/na2mene/lazylaunchd/releases/download/v0.10.0/lazylaunchd_0.10.0_darwin_arm64.tar.gz"
-    sha256 "98ce556eb03fe8ae6b7f6705c5ecca92228e12aea1be8f3be06aff94af05cbfa"
+    url "https://github.com/na2mene/lazylaunchd/releases/download/v0.11.0/lazylaunchd_0.11.0_darwin_arm64.tar.gz"
+    sha256 "1b2123361fcb75d6cec68528f77879fb258cd2bbbf13819b2ee5d4754825c7c1"
 
     define_method(:install) do
       bin.install "lazylaunchd"
