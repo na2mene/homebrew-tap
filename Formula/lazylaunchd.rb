@@ -5,25 +5,36 @@
 class Lazylaunchd < Formula
   desc "A lazygit-style TUI for macOS launchd"
   homepage "https://github.com/na2mene/lazylaunchd"
-  version "0.12.0"
+  version "0.13.0"
   license "MIT"
   depends_on :macos
 
   if Hardware::CPU.intel?
-    url "https://github.com/na2mene/lazylaunchd/releases/download/v0.12.0/lazylaunchd_0.12.0_darwin_amd64.tar.gz"
-    sha256 "72b15829e2a0231edb42033e7007ee5aaead97089f7d7a7f893e937184009fee"
+    url "https://github.com/na2mene/lazylaunchd/releases/download/v0.13.0/lazylaunchd_0.13.0_darwin_amd64.tar.gz"
+    sha256 "c44a456670c043ab498660b7a53bbef9c9050e43e448a480439de1521bcb294b"
 
     define_method(:install) do
       bin.install "lazylaunchd"
     end
   end
   if Hardware::CPU.arm?
-    url "https://github.com/na2mene/lazylaunchd/releases/download/v0.12.0/lazylaunchd_0.12.0_darwin_arm64.tar.gz"
-    sha256 "5018806d07cdcb712bf6e53eeef5c2240578fd67a8438aa843e8b09c34f74b13"
+    url "https://github.com/na2mene/lazylaunchd/releases/download/v0.13.0/lazylaunchd_0.13.0_darwin_arm64.tar.gz"
+    sha256 "5522afddfd6ef12acdc97168eca79fd671b5d10d4a42328abda37c31343e80ea"
 
     define_method(:install) do
       bin.install "lazylaunchd"
     end
+  end
+
+  def caveats
+    <<~EOS
+      To finish setup, run:
+        lazylaunchd setup
+      This installs the background watcher — it records run history and
+      sends a macOS notification when a job fails, even while the TUI
+      is closed. Re-run it after upgrades. Remove it anytime from the
+      TUI (Delete on com.lazylaunchd.watcher).
+    EOS
   end
 
   test do
